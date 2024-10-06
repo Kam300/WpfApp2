@@ -1,0 +1,62 @@
+﻿<Window x:Class="WpfApp2.EmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Окно сотрудника" Height="450" Width="800">
+    <Grid>
+        <TabControl Background="SkyBlue" FontSize="20">
+            <!-- Вкладка Заказ -->
+            <TabItem Header="Заказ" Background="Gray">
+                <ScrollViewer Background="SkyBlue">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Выберите сезон и ассортимент:" FontWeight="Bold" FontSize="22"/>
+                        <ComboBox x:Name="SeasonComboBox" Margin="0,0,0,10">
+                            <ComboBoxItem Content="Лето"/>
+                            <ComboBoxItem Content="Зима"/>
+                            <ComboBoxItem Content="Осень"/>
+                            <ComboBoxItem Content="Весна"/>
+                        </ComboBox>
+                        <ComboBox x:Name="AssortmentComboBox" Margin="0,0,0,10">
+                            <ComboBoxItem Content="Обувь для лета"/>
+                            <ComboBoxItem Content="Обувь для зимы"/>
+                            <ComboBoxItem Content="Обувь для осени"/>
+                            <ComboBoxItem Content="Обувь для весны"/>
+                        </ComboBox>
+                        <Button Content="Сделать заказ" Click="OrderButton_Click" Background="Green" Margin="10"/>
+                        <Button Content="Сменить ползователя" Click="peopleButton_Click" Background="Gray" Margin="10"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <!-- Вкладка Обратная связь -->
+            <TabItem Header="Обратная связь" Background="Gray">
+                <ScrollViewer Background="SkyBlue">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Обратная связь для магазинов:" FontWeight="Bold" FontSize="22"/>
+                        <ComboBox x:Name="FeedbackTypeComboBox" Margin="0,0,0,10">
+                            <ComboBoxItem Content="Пожелания"/>
+                            <ComboBoxItem Content="Претензии"/>
+                            <ComboBoxItem Content="Брак на ассортимент"/>
+                        </ComboBox>
+                        <TextBox x:Name="FeedbackMessageTextBox" Margin="0,0,0,10" Height="80" AcceptsReturn="True" TextWrapping="Wrap"/>
+                        <Button Content="Отправить" Click="SendFeedbackButton_Click" Background="Green" Margin="10"/>
+                        <Image x:Name="FeedbackImage" Height="200" Width="200" Margin="0,10,0,0" />
+                        <Button Content="Загрузить изображение" Click="UploadImageButton_Click" Margin="10"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <!-- Вкладка Статус заявки -->
+            <TabItem Header="Статус заявки" Background="Gray">
+                <ScrollViewer Background="SkyBlue">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Статус заявки:" FontWeight="Bold" FontSize="22"/>
+                        <ListBox x:Name="OrderStatusListBox" Height="200" Margin="0,5,0,10">
+                            <ListBoxItem Content="Принято"/>
+                            <ListBoxItem Content="В процессе"/>
+                            <ListBoxItem Content="Отправлено"/>
+                        </ListBox>
+                        <Button Content="Обновить статус" Click="UpdateOrderStatusButton_Click" Background="Green" Margin="10"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

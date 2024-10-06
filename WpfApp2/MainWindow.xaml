@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Выбор роли" Height="300" Width="400"
+        Background="#F0F8FF">
+    <Grid>
+        <StackPanel Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Выберите вашу роль:" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,0,20" 
+                       Foreground="#2E8B57"
+                       TextAlignment="Center"/>
+
+            <Button Content="Сотрудник" 
+                    Click="SelectRoleButton_Click" 
+                    Width="150" 
+                    Height="50"
+                    Margin="0,0,0,20" 
+                    Background="#66CDAA" 
+                    Foreground="White" 
+                    FontSize="16" 
+                    FontWeight="SemiBold" 
+                    BorderBrush="Transparent" 
+                    Cursor="Hand"
+                    MouseEnter="Button_MouseEnter" 
+                    MouseLeave="Button_MouseLeave"/>
+
+            <Button Content="Координатор" 
+                    Click="RoleButton_Click" 
+                    Width="150" 
+                    Height="50"
+                    Margin="0,0,0,20" 
+                    Background="#20B2AA" 
+                    Foreground="White" 
+                    FontSize="16" 
+                    FontWeight="SemiBold" 
+                    BorderBrush="Transparent" 
+                    Cursor="Hand"
+                    MouseEnter="Button_MouseEnter" 
+                    MouseLeave="Button_MouseLeave"/>
+        </StackPanel>
+    </Grid>
+</Window>
