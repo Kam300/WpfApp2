@@ -14,24 +14,21 @@ namespace WpfApp2
 
         private void SelectRoleButton_Click(object sender, RoutedEventArgs e)
         {
-           
-                    EmployeeWindow employeeWindow = new EmployeeWindow();
-                    employeeWindow.Show();
+            EmployeeWindow employeeWindow = new EmployeeWindow();
+            employeeWindow.Show();
             this.Close();
-         }
-        private void RoleButton_Click(object sender, RoutedEventArgs e)
-        { 
-
-            CoordinatorWindow coordinatorWindow = new CoordinatorWindow();
-                    coordinatorWindow.Show();
-                
-                this.Close();
-            
         }
+
+        private void RoleButton_Click(object sender, RoutedEventArgs e)
+        {
+            CoordinatorWindow coordinatorWindow = new CoordinatorWindow();
+            coordinatorWindow.Show();
+            this.Close();
+        }
+
         private void Button_MouseEnter(object sender, MouseEventArgs e)
         {
-            Button btn = sender as Button;
-            if (btn != null)
+            if (sender is Button btn)
             {
                 btn.Background = new SolidColorBrush(Colors.DarkSeaGreen);
             }
@@ -39,12 +36,10 @@ namespace WpfApp2
 
         private void Button_MouseLeave(object sender, MouseEventArgs e)
         {
-            Button btn = sender as Button;
-            if (btn != null)
+            if (sender is Button btn)
             {
-                btn.Background = btn.Name == "СотрудникButton" ? new SolidColorBrush(Color.FromRgb(102, 205, 170)) : new SolidColorBrush(Color.FromRgb(32, 178, 170));
+                btn.Background = btn.Content.ToString() == "Сотрудник" ? new SolidColorBrush(Color.FromRgb(102, 205, 170)) : new SolidColorBrush(Color.FromRgb(32, 178, 170));
             }
         }
-
     }
 }

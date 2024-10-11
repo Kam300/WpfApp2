@@ -4,28 +4,69 @@
         Title="Окно сотрудника" Height="450" Width="800">
     <Grid>
         <TabControl Background="SkyBlue" FontSize="20">
+
             <!-- Вкладка Заказ -->
             <TabItem Header="Заказ" Background="Gray">
                 <ScrollViewer Background="SkyBlue">
                     <StackPanel Margin="10">
                         <TextBlock Text="Выберите сезон и ассортимент:" FontWeight="Bold" FontSize="22"/>
+
                         <ComboBox x:Name="SeasonComboBox" Margin="0,0,0,10">
                             <ComboBoxItem Content="Лето"/>
                             <ComboBoxItem Content="Зима"/>
                             <ComboBoxItem Content="Осень"/>
                             <ComboBoxItem Content="Весна"/>
                         </ComboBox>
+
+                        <TextBlock Text="Выберите количество обуви:" FontWeight="Bold" FontSize="18"/>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton x:Name="ShoesRadioButton" Content=" Меньше 200" Margin="10" GroupName="FootwearType"/>
+                            <RadioButton x:Name="BootsRadioButton" Content="Около 350" Margin="10" GroupName="FootwearType"/>
+                            <RadioButton x:Name="SandalsRadioButton" Content="Больше 500" Margin="10" GroupName="FootwearType"/>
+                        </StackPanel>
+                        <TextBlock Text="Выберите тип обуви:" FontWeight="Bold" FontSize="18"/>
                         <ComboBox x:Name="AssortmentComboBox" Margin="0,0,0,10">
                             <ComboBoxItem Content="Обувь для лета"/>
                             <ComboBoxItem Content="Обувь для зимы"/>
                             <ComboBoxItem Content="Обувь для осени"/>
                             <ComboBoxItem Content="Обувь для весны"/>
                         </ComboBox>
+
                         <Button Content="Сделать заказ" Click="OrderButton_Click" Background="Green" Margin="10"/>
-                        <Button Content="Сменить ползователя" Click="peopleButton_Click" Background="Gray" Margin="10"/>
+                        <Button Content="Сменить пользователя" Click="peopleButton_Click" Background="Gray" Margin="10"/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
+
+            <!-- Вкладка Ассортимент -->
+            <TabItem Header="Ассортимент" Background="Gray">
+                <ScrollViewer Background="SkyBlue">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Ассортимент обуви:" FontWeight="Bold" FontSize="22"/>
+                        <ItemsControl x:Name="FootwearItemsControl" Margin="0,10,0,10">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#cccccc" BorderThickness="1" CornerRadius="8" Margin="10"
+                                            Background="White" Padding="5">
+                                        <StackPanel Orientation="Vertical" Margin="5">
+                                            <Image Source="{Binding ImagePath}" Height="150" Width="150" 
+                                                   Stretch="UniformToFill" />
+                                            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16" 
+                                                       HorizontalAlignment="Center" Margin="5" />
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
             <!-- Вкладка Обратная связь -->
             <TabItem Header="Обратная связь" Background="Gray">
                 <ScrollViewer Background="SkyBlue">
@@ -38,11 +79,12 @@
                         </ComboBox>
                         <TextBox x:Name="FeedbackMessageTextBox" Margin="0,0,0,10" Height="80" AcceptsReturn="True" TextWrapping="Wrap"/>
                         <Button Content="Отправить" Click="SendFeedbackButton_Click" Background="Green" Margin="10"/>
-                        <Image x:Name="FeedbackImage" Height="200" Width="200" Margin="0,10,0,0" />
+                        <Image x:Name="FeedbackImage" Height="200" Width="200" Margin="0,10,0,0"/>
                         <Button Content="Загрузить изображение" Click="UploadImageButton_Click" Margin="10"/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
+
             <!-- Вкладка Статус заявки -->
             <TabItem Header="Статус заявки" Background="Gray">
                 <ScrollViewer Background="SkyBlue">

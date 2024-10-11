@@ -6,66 +6,87 @@
     <Grid>
         <TabControl Background="#E0F7FA" FontSize="16" FontWeight="Bold">
             <!-- Вкладка Закупка материалов -->
-            <TabItem Header="Закупка материалов" Margin="0">
-                <ScrollViewer>
+            <TabItem Header="Закупка материалов" Background="Gray">
+                <ScrollViewer Background="SkyBlue">
                     <StackPanel Margin="20">
                         <TextBlock Text="Закупка материалов:" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Label Content="Название материала:" Width="Auto" VerticalAlignment="Center" Padding="10,1,100,1"/>
-                            <TextBox x:Name="MaterialNameTextBox" Width="250" Padding="5" Margin="5,0,0,0"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Label Content="Цена (₽):" Margin="0,0,0,5" Padding="10,1,200,1"/>
-                        <TextBox x:Name="MaterialPriceTextBox" Width="250" Margin="0,0,0,10" Padding="5"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Label Content="Дата закупки:" Margin="0,0,0,5" Padding="10,1,166,1"/>
-                        <DatePicker x:Name="PurchaseDatePicker" Width="250" Margin="0,0,0,20"/>
-                        </StackPanel>
-                        <Button Content="Добавить материал"
-                                Click="AddMaterialButton_Click" 
-                                Background="#4CAF50" 
-                                Foreground="White" 
-                                FontWeight="Bold" 
-                                Margin="0,0,0,10" 
-                                Padding="10,5"/>
+
+                        <Grid Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Название материала:" VerticalAlignment="Center" Padding="10,1,10,1" Grid.Column="0"/>
+                            <TextBox x:Name="MaterialNameTextBox" Padding="5" Grid.Column="1"/>
+                        </Grid>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Цена (₽):" Padding="10,1,10,1" Grid.Column="0"/>
+                            <TextBox x:Name="MaterialPriceTextBox" Margin="0,0,0,5" Padding="5" Grid.Column="1"/>
+                        </Grid>
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Количество:" Padding="10,1,10,1" Grid.Column="0"/>
+                            <TextBox x:Name="MaterialQuantityTextBox" Margin="0,0,0,5" Padding="5" Grid.Column="1"/>
+                        </Grid>
+
+                        <Grid Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Дата закупки:" Padding="10,1,10,1" Grid.Column="0"/>
+                            <DatePicker x:Name="PurchaseDatePicker" Margin="0,0,0,0" Grid.Column="1"/>
+                        </Grid>
+
+                        <Button Content="Добавить материал" Click="AddMaterialButton_Click" 
+                    Background="#4CAF50" Foreground="White" FontWeight="Bold" 
+                    Margin="0,10,0,10" Padding="10,5"/>
+                        <Button Content="Сменить пользователя" Click="peopleButton_Click" 
+                    Background="Gray" Margin="10"/>
 
                         <TextBlock Text="Список закупленных материалов:" FontWeight="Bold" Margin="0,20,0,5"/>
-                        <ListBox x:Name="MaterialsListBox" Height="200" Margin="0,5,0,10" Padding="5"/>
+                        <ListBox x:Name="MaterialsListBox" Height="200" Margin="0,5,0,10"/>
 
-                        <Button Content="Закупить"
-                                Click="PurchaseMaterialsButton_Click" 
-                                Background="#4CAF50" 
-                                Foreground="White" 
-                                FontWeight="Bold" 
-                                Margin="0,10,0,0" 
-                                Padding="10,5"/>
+                        <Button Content="Закупить" Click="PurchaseMaterialsButton_Click" 
+                    Background="#4CAF50" Foreground="White" FontWeight="Bold" 
+                    Margin="0,10,0,0" Padding="10,5"/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
 
+
+
             <!-- Вкладка Отчетность -->
-            <TabItem Header="Отчетность" Margin="0">
+            <TabItem Header="Отчетность">
                 <ScrollViewer>
                     <StackPanel Margin="20">
                         <TextBlock Text="Отчетность и налоговые отчисления:" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Label Content="Тип отчета:" Margin="0,0,0,5" Padding="10,1,166,1"/>
 
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Тип отчета:" Margin="0,5,0,5" Padding="10,1,10,1"/>
                             <ComboBox x:Name="ReportTypeComboBox" Width="250" Margin="0,0,0,10" Padding="5">
-                          
-                            <ComboBoxItem Content="Поставки"/>
-                            <ComboBoxItem Content="Продажи"/>
-                            <ComboBoxItem Content="Налоги"/>
-                        </ComboBox>
-                     </StackPanel>  
-                        <Button Content="Сформировать отчет" 
-                                Click="GenerateReportButton_Click" 
-                                Background="#4CAF50" 
-                                Foreground="White" 
-                                FontWeight="Bold" 
-                                Margin="0,10,0,0" 
-                                Padding="10,5"/>
+                                <ComboBoxItem Content="Поставки"/>
+                                <ComboBoxItem Content="Продажи"/>
+                                <ComboBoxItem Content="Налоги"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <Button Content="Сформировать отчет" Click="GenerateReportButton_Click" 
+                                Background="#4CAF50" Foreground="White" FontWeight="Bold" 
+                                Margin="0,10,0,0" Padding="10,5"/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>

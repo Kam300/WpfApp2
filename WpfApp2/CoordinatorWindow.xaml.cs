@@ -15,31 +15,48 @@ namespace WpfApp2
         private void AddMaterialButton_Click(object sender, RoutedEventArgs e)
         {
             string materialName = MaterialNameTextBox.Text;
-            string materialPrice = MaterialPriceTextBox.Text;
+            string materialPriceText = MaterialPriceTextBox.Text;
+            string qtyText = MaterialQuantityTextBox.Text;
             string purchaseDate = PurchaseDatePicker.SelectedDate?.ToShortDateString() ?? "Не указана";
 
-            if (!string.IsNullOrWhiteSpace(materialName) && !string.IsNullOrWhiteSpace(materialPrice))
+            // Попробуем преобразовать строки в числа
+            if (decimal.TryParse(materialPriceText, out decimal materialPrice) &&
+                int.TryParse(qtyText, out int qty) && qty > 0)
             {
-                materials.Add($"{materialName} - {materialPrice}₽, Дата: {purchaseDate}");
+                decimal totalCost = materialPrice * qty;
+                materials.Add($"{materialName} - {materialPrice}₽, Дата: {purchaseDate}, {qty} шт, Общая цена: {totalCost}₽");
                 MaterialsListBox.Items.Add(materials[^1]);
-                MaterialNameTextBox.Clear();
-                MaterialPriceTextBox.Clear();
-                PurchaseDatePicker.SelectedDate = null;
+                ClearInputFields();
             }
             else
             {
-                MessageBox.Show("Пожалуйста, заполните все поля!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Пожалуйста, заполните все поля правильно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+
+        private void ClearInputFields()
+        {
+            MaterialNameTextBox.Clear();
+            MaterialPriceTextBox.Clear();
+            MaterialQuantityTextBox.Clear();
+            PurchaseDatePicker.SelectedDate = null;
         }
 
         private void PurchaseMaterialsButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Закупка материалов завершена!");
+            MessageBox.Show("Закупка материалов завершена!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void GenerateReportButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Отчет сформирован!");
+            MessageBox.Show("Отчет сформирован!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+         private void peopleButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

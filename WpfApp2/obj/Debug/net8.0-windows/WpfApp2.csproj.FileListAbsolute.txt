@@ -21,3 +21,4 @@ C:\Users\RobotComp.ru\source\repos\WpfApp2\WpfApp2\obj\Debug\net8.0-windows\refi
 C:\Users\RobotComp.ru\source\repos\WpfApp2\WpfApp2\obj\Debug\net8.0-windows\WpfApp2.pdb
 C:\Users\RobotComp.ru\source\repos\WpfApp2\WpfApp2\obj\Debug\net8.0-windows\WpfApp2.genruntimeconfig.cache
 C:\Users\RobotComp.ru\source\repos\WpfApp2\WpfApp2\obj\Debug\net8.0-windows\ref\WpfApp2.dll
+C:\Users\RobotComp.ru\source\repos\WpfApp2\WpfApp2\obj\Debug\net8.0-windows\WpfApp2.sourcelink.json
